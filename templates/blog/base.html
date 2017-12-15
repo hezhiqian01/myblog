@@ -109,7 +109,7 @@
               {% get_catagories as categories %}
             <ol class="list-unstyled">
                 {% for cate in categories %}
-              <li><a href="{% url 'blog:catagory' cate.pk %}">{{ cate.name }}</a></li>
+              <li><a href="{% url 'blog:catagory' cate.pk %}">{{ cate.name }}({{ cate.blog_set.count }})</a></li>
                 {% endfor %}
             </ol>
           </div>

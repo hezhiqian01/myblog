@@ -16,6 +16,11 @@ class IndexView(ListView):
 
     paginate_by = 3
 
+    def get_queryset(self):
+        blogs = Blog.objects.all().order_by('-created')
+        print(blogs)
+        return blogs
+
     def get_context_data(self, **kwargs):
         """
         在视图函数中将模板变量传递给模板是通过给 render 函数的 context 参数传递一个字典实现的，
@@ -47,6 +52,8 @@ class IndexView(ListView):
 
         # 将更新后的 context 返回，以便 ListView 使用这个字典中的模板变量去渲染模板。
         # 注意此时 context 字典中已有了显示分页导航条所需的数据。
+
+
 
         return context
 
